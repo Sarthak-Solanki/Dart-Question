@@ -58,8 +58,6 @@ removeRear(){
 bool isEmpty(){
   return size==0;
 }
-
-
 display(){
   Node n = head;
   while(n!=null){
