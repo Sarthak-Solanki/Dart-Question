@@ -10,8 +10,7 @@ main(){
   pop();
   pop();
   pop();
-
-  display();
+ // display();
 //print(peek());
 
 }
