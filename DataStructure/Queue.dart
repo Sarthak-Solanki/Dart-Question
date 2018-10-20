@@ -11,8 +11,8 @@ void enque(data){
     while (n.next != null) {
       n = n.next;
     }
-    print(n.next.data);
-    n.next = null;
+    //print(n.next.data);
+    n.next = node;
   }
 }
 String deque(){
@@ -40,4 +40,21 @@ bool isEmpty(){
 }
 int isSize(){
   return size;
+}
+ display(){
+  Node n = head;
+  while(n!=null){
+    print(n.data);
+    n = n.next;
+  }
+}
+main(){
+  enque(44);
+  enque(77);
+  enque(54);
+  enque(4);
+  enque(54);
+  enque(42);
+  display();
+
 }

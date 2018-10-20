@@ -21,11 +21,35 @@ void push(data) {
   }
 }
 
-String pop() {
+int pop() {
+var lastdata;
   Node prev = null;
   if (isEmpty()) {
     print("Stack is Empty cant pop the data");
-  } else {
+  }
+  else{
+    Node n = head;
+    while(n.next!=null){
+      prev = n;
+      n = n.next;
+    }
+    if(prev==null){
+      lastdata =  head.data;
+      head = null;
+      size--;
+      return lastdata;
+    }
+
+    var data = n.data;
+    prev.next=null;
+    size--;
+   // print(data);
+    return data;
+    /*Node current = n;
+    prev.next= null;
+    return current.data;*/
+  }
+  /*else {
     Node n = head;
     while (n.next != null) {
       prev = n;
@@ -40,10 +64,10 @@ String pop() {
     }
     size--;
     return prev.data;
-  }
+  }*/
 }
 
-String peek() {
+int peek() {
   Node n = head;
   while (n.next != null) {
     n = n.next;

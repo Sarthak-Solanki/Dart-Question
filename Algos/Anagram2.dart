@@ -1,20 +1,33 @@
 import 'dart:io';
 
 main() {
+  Anagram2 a = new Anagram2();
   print('Enter 1st String');
   String s1 = stdin.readLineSync();
   print('Enter 2nd String');
   String s2 = stdin.readLineSync();
   if (s1.length != s2.length) {
     print('Not Anagram');
-  } else
-    isAnagram(s1, s2);
+  } else{
+  bool b= a.isAnagram(s1, s2);
+  if(b){
+    print('Anagram');
+  }
+  else
+  print('Not a anagram');
 }
+}
+class Anagram2{
+bool isAnagram(var s1, var s2) {
 
-void isAnagram(var s1, var s2) {
   bool b = true;
   s1 = s1.toString();
+  //print(s1);
   s2 = s2.toString();
+ // print(s2);
+  if(s1.length!=s2.length){
+    return false;
+  }
   s2 = s2.toLowerCase();
   s1 = s1.toLowerCase();
   List l = new List();
@@ -35,11 +48,11 @@ void isAnagram(var s1, var s2) {
     }
   }
   if (b) {
-    print('Anagram');
+    return b = true;
   }
   else
-    print('not anagram');
-}
+    return b = false;
+}}
 /*List l = new List();
   List l2 = new List();
   String st = '';

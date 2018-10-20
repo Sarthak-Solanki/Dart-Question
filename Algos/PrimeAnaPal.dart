@@ -1,13 +1,14 @@
 import 'dart:io';
-import 'Anagram2.dart' as a2;
+import 'Anagram2.dart' ;
 import 'Palindrome.dart' as p;
 main(){
+  Anagram2 a2 = new Anagram2();
   print('Enter number');
 int i = int.parse(stdin.readLineSync());
 int prime = isPrime(i);
 
 if(prime>10){
-  //a2.isAnagram(i, i);
+  a2.isAnagram(i, i);
   p.isPalindrome(i);
 }
 }
