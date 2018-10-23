@@ -54,7 +54,8 @@ String functionWork(var x,List l,var userInput) {
   String st2 = '';
   for (int i = 0; i < l.length; i++){
     st2 = st2+l2[i];
-    st2 = st2+" ";
+    if(i<l.length-1){
+    st2 = st2+" ";}
 }
 return st2;
 }
