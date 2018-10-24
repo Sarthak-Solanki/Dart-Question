@@ -1,6 +1,7 @@
 import 'UnOrderList.dart';
 import 'dart:io';
 main() {
+  UnOrderList un= new UnOrderList();
   String s ='';
   File f= new File('/home/administrator/file.text');
   String st = f.readAsStringSync();
@@ -8,12 +9,12 @@ main() {
   for(int i = 0;i<st.length;i++) {
     l = st.split(' ');
   }
-  l.forEach((f)=>add(f));
-  display();
+  l.forEach((f)=>un.add(f));
+  un.display();
   print('Enter a word you want to find');
   var word = stdin.readLineSync();
-  bool b = find(word);
-  display();
+  bool b = un.find(word);
+  un.display();
 
   if(b){
     st = st+" "+word;

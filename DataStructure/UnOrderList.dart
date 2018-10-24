@@ -1,5 +1,5 @@
 import 'Node.dart';
-
+class UnOrderList<G> {
   Node head;
   int size = 0;
 
@@ -30,6 +30,7 @@ import 'Node.dart';
     Node n = head;
     if (n.data == data) {
       head = head.next;
+      size--;
     }
     else {
       Node temp = head;
@@ -66,4 +67,29 @@ import 'Node.dart';
     }
     return b;
   }
-
+  bool isEmpty(){
+    return size==0;
+  }
+  G pop(int pos){
+    Node temp = head;
+    Node prev = null;
+    var d = null;
+    if(pos == 0){
+      var data  = head.data;
+      head = head.next;
+      size--;
+      return data;
+    }
+    for(int i = 0;i<size;i++){
+      if(i==pos){
+        prev.next = temp.next;
+        size--;
+        return d;
+      }
+      prev = temp;
+      d = temp.data;
+      temp = temp.next;
+      return null;
+    }
+  }
+}
