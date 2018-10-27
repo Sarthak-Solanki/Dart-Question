@@ -1,6 +1,7 @@
 import 'PrimeAnagram12.dart';
 import 'Queue.dart';
 class PrimeAnaQue{
+  Queue q  = new Queue();
 List getAnaPrime(){
   PrimeAnagram12 pa = new PrimeAnagram12();
   List l = pa.Anagram();
@@ -9,11 +10,11 @@ List getAnaPrime(){
 putInQueue(){
   List l = getAnaPrime();
   for(int i = 0;i<l.length;i++){
-    enque(l[i]);
+    q.enque(l[i]);
   }
 }
 getFromQue(){
-  display();
+  q.display();
 }
 }
 main(){

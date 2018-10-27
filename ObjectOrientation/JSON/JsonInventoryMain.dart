@@ -1,5 +1,5 @@
-import 'JsonInventory.dart';
-
+import '/home/administrator/AndroidStudioProjects/flutter_app_algo/ObjectOrientation/JSON/JsonInventory.dart';
+import 'dart:convert';
 main() {
   JsonInventory js = new JsonInventory();
   List item = js.item();
@@ -8,14 +8,12 @@ main() {
   JsonInventory ji = new JsonInventory();
   List z = ji.getInput();
   ji.putInJson(z);
-  List l = ji.show();
-
-  for (int i = 0; i < l.length; i++) {
-    m = l[i];
-    print(m);
+  ji.show();
+  /*for (int i = 0; i < l.length; i++) {
+    m = jsonDecode(l[i]) as Map;
     var m1;
     var m2;
-    int count = 0;
+    //int count = 0;
     m.forEach((k, v) {
       if (k == 'weight') {
         m1 = v;
@@ -25,7 +23,5 @@ main() {
         print("Price is");
         print(m1 * m2);
       }
-    count++;
-    });
+    });*/
   }
-}

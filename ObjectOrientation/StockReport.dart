@@ -29,7 +29,7 @@ class StockReport{
     while(!list.isEmpty()){
       StockDetails sd = list.pop(0);
       TValue = TValue+sd.getValue();
-     // print(sd.getName()+"    "+sd.getNoOfShare().toString()+"   "+sd.getPrice().toString()+"   "+sd.getValue().toString());
+      print(sd.getName()+"    "+sd.getNoOfShare().toString()+"   "+sd.getPrice().toString()+"   "+sd.getValue().toString());
     list.display();
     }
     print("Total value is"+TValue.toString());

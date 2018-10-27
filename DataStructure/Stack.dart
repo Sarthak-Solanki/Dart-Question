@@ -21,8 +21,8 @@ void push(data) {
   }
 }
 
-int pop() {
-var lastdata;
+String pop() {
+  var lastdata;
   Node prev = null;
   if (isEmpty()) {
     print("Stack is Empty cant pop the data");
@@ -43,7 +43,7 @@ var lastdata;
     var data = n.data;
     prev.next=null;
     size--;
-   // print(data);
+    // print(data);
     return data;
     /*Node current = n;
     prev.next= null;

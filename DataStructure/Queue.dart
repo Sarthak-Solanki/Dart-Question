@@ -1,4 +1,6 @@
 import 'Node.dart';
+import 'dart:io';
+class Queue{
 Node head;
 int size=0;
 void enque(data){
@@ -20,18 +22,18 @@ String deque(){
     return null;
   }
   else
-    {
-  Node n = head;
-  if(head.next!=null){
-    String datas = head.data;
-    head = head.next;
+  {
+    Node n = head;
+    if(head.next!=null){
+      String datas = head.data;
+      head = head.next;
 
-    size--;
-    return datas;
-  }
-  else{
-  return head.data;}
-}}
+      size--;
+      return datas;
+    }
+    else{
+      return head.data;}
+  }}
 bool isEmpty(){
   if(size==0){
     return true;
@@ -41,20 +43,23 @@ bool isEmpty(){
 int isSize(){
   return size;
 }
- display(){
+display(){
   Node n = head;
   while(n!=null){
-    print(n.data);
+    print(n.data.toString()+" ");
     n = n.next;
   }
+
+}
 }
 main(){
-  enque(44);
-  enque(77);
-  enque(54);
-  enque(4);
-  enque(54);
-  enque(42);
-  display();
+  Queue q = new Queue();
+  q.enque(44);
+  q.enque(77);
+  q.enque(54);
+  q.enque(4);
+  q.enque(54);
+  q.enque(42);
+  q.display();
 
 }

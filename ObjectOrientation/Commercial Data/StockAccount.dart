@@ -1,8 +1,9 @@
 import 'CompanyShares.dart';
 import 'dart:io';
-import '/home/administrator/AndroidStudioProjects/flutter_app_algo/DataStructure/UnOrderList.dart';
+import '/home/administrator/AndroidStudioProjects/flutter_app_algo/DataStructure/Stack.dart' as st;
+import '/home/administrator/AndroidStudioProjects/flutter_app_algo/DataStructure/Queue.dart';
 class StockAccount{
-
+Queue q = new Queue();
   List<CompanyShares> list = new List();
   //List<CompanyShare> l;
   void buySell(){
@@ -30,7 +31,7 @@ class StockAccount{
     }
   }
   void buy(int amount,String symbol,int price){
-    var dateTime = new DateTime.now();
+    var dateTime = new DateTime.now().toString();
    // print(amount~/price);
     int numOfShare = amount~/price;
     CompanyShares co = new CompanyShares(symbol, numOfShare , price, dateTime.toString());
@@ -38,14 +39,18 @@ class StockAccount{
    // print(co.getPrice());
    // print(dateTime);
     list.add(co);
+    st.push("Purchased");
+    q.enque(dateTime);
   }
   void sell(int amount,String symbol,int price){
     int numOfShares = amount~/price;
-    var dateTime = new DateTime.now();
+    var dateTime = new DateTime.now().toString();
     for(int i = 0;i<list.length;i++){
       if(list[i].getSymbol()==symbol){
         list[i].setNumOfShare(list[i].getNumOfShare() - numOfShares);
         list[i].setDateTime(dateTime);
+        st.push("Sold");
+        q.deque();
         break;
       }
     }
@@ -59,11 +64,15 @@ class StockAccount{
   }
   void printReport(){
     for(int i = 0;i<list.length;i++){
-      print("Symbol:"+list[i].getSymbol()+
-          " Price is: "+list[i].getPrice().toString()+" Value is: "+list[i].getValue().toString()
-          +" Num oOf share is: "+list[i].getNumOfShare().toString()
-          +" date time is: "+list[i].getDateTime().toString());
+      print("Symbol: \n"+list[i].getSymbol()+
+          " Price is: \n"+list[i].getPrice().toString()+" Value is: \n"+list[i].getValue().toString()
+          +" Num oOf share is: \n"+list[i].getNumOfShare().toString()
+          +" date time is: \n"+list[i].getDateTime().toString());
     }
+    print("Symbols are: ");
+    print(st.pop());
+    print("time of purchase/sell is: ");
+    print(q.deque());
   }
 }
 main(){
