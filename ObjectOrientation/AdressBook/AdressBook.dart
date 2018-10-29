@@ -98,27 +98,24 @@ class AdressBook {
     }
     printData();
   }
-
   printData() {
-Map map = new Map();
+    Map map = new Map();
     for (int i = 0; i < l.length; i++) {
-      st = st+ "\n"+
+      st = st+
           "Name :"+l[i].name +
           " Phone num:  " + l[i].phno +
           " Adress: " + l[i].adress +
           " ZipCode " + l[i].zip.toString();
     }
-    String sp = json.encode(st);
+    String sp = json.encode(l);
     print("Sp is :: *******************"+sp);
     print("Do you want to write changes to file? 0 for yes");
     int input = int.parse(stdin.readLineSync());
     if(input==0){
-      writeToFile(st);
+      writeToFile(sp);
     }
     st="";
   }
-
-
   sortName() {
     for (int k = 1; k < l.length; k++) {
       for (int i = 0; i < l.length - 1; i++) {

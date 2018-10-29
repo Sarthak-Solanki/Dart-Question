@@ -6,8 +6,8 @@ main() {
   List n = new List();
   Map<String, dynamic> m;
   JsonInventory ji = new JsonInventory();
-  List z = ji.getInput();
-  ji.putInJson(z);
+   ji.getInput();
+  //ji.putInJson(z);
   ji.show();
   /*for (int i = 0; i < l.length; i++) {
     m = jsonDecode(l[i]) as Map;

@@ -1,9 +1,10 @@
 import 'dart:io';
 import 'dart:convert';
-
 class JsonInventory {
   int total;
-
+  String name;
+  int weight;
+  int price;
   List jsson = new List();
   List output = new List();
   Map<String, dynamic> map = new Map();
@@ -14,7 +15,6 @@ class JsonInventory {
     item.add("Pulses");
     return item;
   }
-
   List getInput() {
     JsonInventory js = new JsonInventory();
     List item =js.item();
@@ -24,24 +24,33 @@ class JsonInventory {
       int count = int.parse(stdin.readLineSync());
       for (int j = 0; j < count; j++) {
         print("Enter name");
-        String s = stdin.readLineSync();
-        map["Name"] =  s;
+       name = stdin.readLineSync();
+        map["Name"] =  name;
         print("Enter  weight");
-        int weight = int.parse(stdin.readLineSync());
+         weight = int.parse(stdin.readLineSync());
         map["weight"] = weight;
         print("Enter  price");
-        int price = int.parse(stdin.readLineSync());
+         price = int.parse(stdin.readLineSync());
         map["price" ] = price;
         total =  price*weight;
         String st = map.toString();
+        putInJson(map);
         jsson.add(st);
         output.add(st+" Total is :"+total.toString());
       }
     }
     return jsson;
   }
-  void putInJson(List l) {
-   String st =  json.encode(l);
+  Map toJson() {
+    Map map = new Map();
+    map["Name"] = name;
+    map["Weight"] = weight;
+    map["price"] = price;
+    //map["apointmentNo"] = _apointmentNo;
+    return map;
+  }
+  void putInJson(Map l) {
+    String st =  json.encode(l);
     File f = new File('/home/administrator/JsonExample.json');
     f.writeAsStringSync(st);
   }
