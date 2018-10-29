@@ -20,7 +20,7 @@ class Patient{
     Map map = new Map();
     map["Name"] = _name;
     map["id"] = _id;
-    map["Mobile NUmber"] = _mobileNumber;
+    map["Mobile Number"] = _mobileNumber;
     map["Age"] = _age;
     return map;
   }
