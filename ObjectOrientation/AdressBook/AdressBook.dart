@@ -7,20 +7,38 @@ class AdressBook {
   File f;
   Map map = new Map();
   addData() {
+
     print("Enter Name");
     String name = stdin.readLineSync();
+    map["Name"] = name;
     print("Enter Adress");
     String adress = stdin.readLineSync();
+    map["Address"] = adress;
     print("Enter your zip code");
     int zipcode = int.parse(stdin.readLineSync());
+    map["zipcode"] = zipcode;
     print("Enter your phone number without +91");
     String phno = stdin.readLineSync();
+    map["Phone no"] = phno;
     Person p = new Person(name, adress, zipcode, phno);
     l.add(p);
   }
   List<Person> l = new List<Person>();
 
+  readPerson(){
+    File f = new File("/home/administrator/DirectoryExample/AdressBook.json");
+    String s = f.readAsStringSync();
+    if(!s.isEmpty){
+      List sp = jsonDecode(s);
+      Person per;
+      for(Map<String, dynamic> item in sp)
+      {
+        per = new Person.fromJson(item);
+        l.add(per);
+      }
+    }
 
+  }
   void DataManipulation() {
     readFile();
     print("Enter 0 to add data 1 to remove data and 2 to edit data and 3 to print and to save changes");
@@ -101,7 +119,7 @@ class AdressBook {
   printData() {
     Map map = new Map();
     for (int i = 0; i < l.length; i++) {
-      st = st+
+        st = st+
           "Name :"+l[i].name +
           " Phone num:  " + l[i].phno +
           " Adress: " + l[i].adress +
@@ -153,5 +171,6 @@ class AdressBook {
 
 main() {
   AdressBook ab = new AdressBook();
+  ab.readPerson();
   ab.DataManipulation();
 }

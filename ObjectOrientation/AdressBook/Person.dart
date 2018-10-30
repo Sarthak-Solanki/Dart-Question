@@ -19,7 +19,20 @@ class Person{
     _zip = value;
   }
 
-
+  Map toJson() {
+    Map map = new Map();
+    map["Name"] = _name;
+    map["Address"] = _adress;
+    map["zipcode"] = _zip;
+    map["Phone no"] = _phno;
+    return map;
+  }
+  Person.fromJson(Map<String,dynamic>map){
+    _name = map["Name"];
+    _adress = map["Address"];
+    _zip = map["zipcode"];
+    _phno = map["Phone no"];
+  }
    setadress(String value) {
     _adress = value;
   }
