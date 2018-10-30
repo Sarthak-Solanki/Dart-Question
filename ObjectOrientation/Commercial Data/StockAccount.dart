@@ -64,10 +64,10 @@ Queue q = new Queue();
   }
   void printReport(){
     for(int i = 0;i<list.length;i++){
-      print("Symbol: \n"+list[i].getSymbol()+
-          " Price is: \n"+list[i].getPrice().toString()+" Value is: \n"+list[i].getValue().toString()
-          +" Num oOf share is: \n"+list[i].getNumOfShare().toString()
-          +" date time is: \n"+list[i].getDateTime().toString());
+      print("Symbol: "+list[i].getSymbol()+
+          "\n Price is: "+list[i].getPrice().toString()+" Value is: \n"+list[i].getValue().toString()
+          +"\n Num oOf share is: "+list[i].getNumOfShare().toString()
+          +"\n date time is: "+list[i].getDateTime().toString());
     }
     print("Symbols are: ");
     print(st.pop());
